@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5152363520226696723, guid: 5f10e6977569844e89102a0771c5828c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.52
       objectReference: {fileID: 0}
     - target: {fileID: 5152363520226696723, guid: 5f10e6977569844e89102a0771c5828c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.46
       objectReference: {fileID: 0}
     - target: {fileID: 5152363520226696723, guid: 5f10e6977569844e89102a0771c5828c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -57,20 +57,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -4598506999605507991, guid: 204787b4249b448bdbe8fe414b730265, type: 3}
     - target: {fileID: 5645107619800220274, guid: 5f10e6977569844e89102a0771c5828c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645107619800220274, guid: 5f10e6977569844e89102a0771c5828c, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
-      value: 0.79173774
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5645107619800220274, guid: 5f10e6977569844e89102a0771c5828c, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 2.3508103
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5645107619800220274, guid: 5f10e6977569844e89102a0771c5828c, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 2.3
+      value: 2.13
       objectReference: {fileID: 0}
     - target: {fileID: 5645107619800220274, guid: 5f10e6977569844e89102a0771c5828c, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.87
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 5645107619800220274, guid: 5f10e6977569844e89102a0771c5828c, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.size
@@ -443,6 +447,10 @@ PrefabInstance:
     - target: {fileID: 5645107619800220274, guid: 5f10e6977569844e89102a0771c5828c, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[45].y
       value: -4.232502
+      objectReference: {fileID: 0}
+    - target: {fileID: 8533568228699999417, guid: 5f10e6977569844e89102a0771c5828c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
+using TMPro;
 
 // cherry, grape, apple
 
@@ -14,7 +15,15 @@ public class PlayerBehaviour : MonoBehaviour {
     public float max;
     float startTime = 0.0f;
     public int move;
-
+    public GameObject gameOverPanel;
+    public AudioSource dropSource;
+    
+    public int[] points;
+    public int total;
+    public TMP_Text textField;
+    
+    
+    
     //private Key kk;
     
     public float offY = -0.6f;
@@ -22,59 +31,56 @@ public class PlayerBehaviour : MonoBehaviour {
     void Start() {
         startTime = 0.0f;
         move = 0; // 0 means you can move both ways
+        total = 0;
+        dropSource = gameObject.GetComponents<AudioSource>()[1];
     }
 
     // Update is called once per frame
     void Update() {
-        // fruit position below player
+        // Fruit position below player
+        Vector3 fruitOffset = new Vector3(0.0f, offY, 0.0f);
+        Vector3 playerPos = transform.position;
+        Vector3 vectorP = playerPos + fruitOffset;
         if (currentFruit != null ) {
-            Vector3 playerPos = transform.position;
-            Vector3 fruitOffset = new Vector3(0.0f, offY, 0.0f);
-            currentFruit.transform.position = playerPos + fruitOffset;
-        }
-        else {
+            currentFruit.transform.position = vectorP;
+        } else {
             int choice = Random.Range(0, fruits.Length);
-            currentFruit = Instantiate(fruits[choice], new Vector3(0.0f,0.0f,0.0f), Quaternion.identity);
+            currentFruit = Instantiate(fruits[choice], vectorP, Quaternion.identity);
         }
-        // drop fruit
+        // Drop fruit
         if (Keyboard.current.spaceKey.wasPressedThisFrame ) {
             Rigidbody2D body = currentFruit.GetComponent<Rigidbody2D>();
             body.gravityScale = 1.0f;
-            
+            dropSource.Play();
             Collider2D collider = currentFruit.GetComponent<Collider2D>();
             collider.enabled = true;
-            
             currentFruit = null;
         }
         // keyboard movement of player
+        // Move left
         float offset = 0.0f;
         bool left = (Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed) && move != 1;
         if (left == true) {
             offset = -speed;
         }
 
-       // bool t = Keyboard.current[kk].wasPressedThisFrame;
+        // Move Right
         if (Keyboard.current.rightArrowKey.isPressed || Keyboard.current.dKey.isPressed) {
             offset = speed;
         }
         
+        // Compute new position
         Vector3 newPos = transform.position;
         newPos.x = newPos.x + offset;
-        // Prevent movement to far right
         
+        // Prevent movement too far right
         if (newPos.x > max) {
             newPos.x = max; 
         }
-        // Prevent movement to far left
+        // Prevent movement too far left
         if (newPos.x < min) {
             newPos.x = min; 
         }
-
-        // if (startTime > 0.0f) {
-        //     float howLongPassed = Time.time - startTime;
-        //     print(howLongPassed);
-        // }
-        
         
         transform.position = newPos;
         
@@ -100,5 +106,14 @@ public class PlayerBehaviour : MonoBehaviour {
             move = 0; // Cannot move left
         }
     }
-    
+
+    public void GameOver() {
+        gameOverPanel.SetActive(true);
+    }
+
+
+    public void updateScore(int index) {
+        total = total + points[index];
+        textField.SetText("Score: " + total);
+    }
 }

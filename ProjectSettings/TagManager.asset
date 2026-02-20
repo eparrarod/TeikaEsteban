@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - LB
+  - Top
+  - Fruit
   layers:
   - Default
   - TransparentFX

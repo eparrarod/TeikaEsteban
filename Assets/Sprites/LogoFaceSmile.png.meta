@@ -141,12 +141,12 @@ TextureImporter:
       name: LogoFaceSmile_1
       rect:
         serializedVersion: 2
-        x: 397
+        x: 405
         y: 689
-        width: 230
-        height: 187
-      alignment: 9
-      pivot: {x: 0.79173774, y: 2.3508103}
+        width: 213
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
