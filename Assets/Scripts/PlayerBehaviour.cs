@@ -16,13 +16,10 @@ public class PlayerBehaviour : MonoBehaviour {
     float startTime = 0.0f;
     public int move;
     public GameObject gameOverPanel;
-    public AudioSource dropSource;
     
     public int[] points;
     public int total;
     public TMP_Text textField;
-    
-    
     
     //private Key kk;
     
@@ -32,7 +29,6 @@ public class PlayerBehaviour : MonoBehaviour {
         startTime = 0.0f;
         move = 0; // 0 means you can move both ways
         total = 0;
-        dropSource = gameObject.GetComponents<AudioSource>()[1];
     }
 
     // Update is called once per frame
@@ -44,14 +40,15 @@ public class PlayerBehaviour : MonoBehaviour {
         if (currentFruit != null ) {
             currentFruit.transform.position = vectorP;
         } else {
-            int choice = Random.Range(0, fruits.Length);
+            int choice = GameObject.FindGameObjectWithTag("Queue").GetComponent<QueueManager>().updateQueue();
+
             currentFruit = Instantiate(fruits[choice], vectorP, Quaternion.identity);
+
         }
         // Drop fruit
         if (Keyboard.current.spaceKey.wasPressedThisFrame ) {
             Rigidbody2D body = currentFruit.GetComponent<Rigidbody2D>();
             body.gravityScale = 1.0f;
-            dropSource.Play();
             Collider2D collider = currentFruit.GetComponent<Collider2D>();
             collider.enabled = true;
             currentFruit = null;
@@ -83,7 +80,6 @@ public class PlayerBehaviour : MonoBehaviour {
         }
         
         transform.position = newPos;
-        
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
