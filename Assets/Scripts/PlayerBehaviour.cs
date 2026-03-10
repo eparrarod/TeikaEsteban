@@ -20,6 +20,8 @@ public class PlayerBehaviour : MonoBehaviour {
     public int[] points;
     public int total;
     public TMP_Text textField;
+
+    private QueueManager queue;
     
     //private Key kk;
     
@@ -29,6 +31,7 @@ public class PlayerBehaviour : MonoBehaviour {
         startTime = 0.0f;
         move = 0; // 0 means you can move both ways
         total = 0;
+        queue = GameObject.FindGameObjectWithTag("Queue").GetComponent<QueueManager>();
     }
 
     // Update is called once per frame
@@ -40,7 +43,7 @@ public class PlayerBehaviour : MonoBehaviour {
         if (currentFruit != null ) {
             currentFruit.transform.position = vectorP;
         } else {
-            int choice = GameObject.FindGameObjectWithTag("Queue").GetComponent<QueueManager>().updateQueue();
+            int choice = queue.updateQueue();
 
             currentFruit = Instantiate(fruits[choice], vectorP, Quaternion.identity);
 

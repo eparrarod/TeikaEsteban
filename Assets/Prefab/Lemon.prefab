@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 618276913178034327, guid: 5f10e6977569844e89102a0771c5828c, type: 3}
+      propertyPath: fruitType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3762529807231058157, guid: 5f10e6977569844e89102a0771c5828c, type: 3}
       propertyPath: m_Name
       value: Lemon

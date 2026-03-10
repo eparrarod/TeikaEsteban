@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 06e91acfb7b6440598253ba30a272254, type: 2}
+    - target: {fileID: 618276913178034327, guid: 5f10e6977569844e89102a0771c5828c, type: 3}
+      propertyPath: fruitType
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3762529807231058157, guid: 5f10e6977569844e89102a0771c5828c, type: 3}
       propertyPath: m_Name
       value: Banana
